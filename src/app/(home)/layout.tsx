@@ -46,7 +46,14 @@ const jsonLD = {
 export default function HomeLayout({ children }: { children: React.ReactNode }) {
     return (
         <main>
-            <Script id="json-ld" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLD).replace(/</g, '\\u003c'), }} />
+            <Script
+                id="json-ld"
+                type="application/ld+json"
+                strategy="beforeInteractive"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify(jsonLD).replace(/</g, '\\u003c'),
+                }}
+            />
             {children}
         </main>
     );
