@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import { exo2Font, montserratAlternatesFont } from "@/lib/fonts"
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: "Vyoma Studio",
@@ -19,6 +20,7 @@ export default function RootLayout({
         className={`${exo2Font.variable} ${montserratAlternatesFont.variable} antialiased`}
       >
         {children}
+        <Analytics />
       </body>
     </html>
   );
