@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next"
+
 import { exo2Font, montserratAlternatesFont } from "@/lib/fonts"
 import "./globals.css";
-import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: "Vyoma Studio",
@@ -21,6 +23,7 @@ export default function RootLayout({
       >
         {children}
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
