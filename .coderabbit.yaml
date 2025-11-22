@@ -1,0 +1,23 @@
+version: 1
+
+ai_reviewer:
+  enabled: true
+  inline_suggestions: true
+  comment_min_severity: medium
+
+rules:
+
+  # Strictest rules for anything merging into main
+  - name: Main Merge Protection
+    targets_base_branches: ["main"]
+    ai_review_depth: high
+    require_human_approval: true
+    required_approvals: 1
+    block_on_critical: true
+    enforce_description: true
+    require_self_review_checklist: true
+
+ignore_generated_files:
+  - "dist/**"
+  - "node_modules/**"
+  - "**/*.min.js"
