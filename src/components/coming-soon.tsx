@@ -10,18 +10,13 @@ type TimeLeft = {
   seconds: number;
 };
 
-const TARGET_TIME_IST = new Date("2026-01-15T12:45:00+05:30").getTime();
+const TARGET_TIME = new Date("2026-01-15T12:45:00+05:30").getTime();
+
 export const ComingSoon = () => {
-  const getISTNow = useCallback(() => {
-    const now = new Date();
-    const istOffset = 5.5 * 60 * 60 * 1000;
-    const utc = now.getTime() + now.getTimezoneOffset() * 60000;
-    return utc + istOffset;
-  }, []);
 
   const calculateTimeLeft = useCallback((): TimeLeft => {
-    const now = getISTNow();
-    const distance = TARGET_TIME_IST - now;
+    const now = Date.now();
+    const distance = TARGET_TIME - now;
 
     if (distance <= 0) {
       return { days: 0, hours: 0, minutes: 0, seconds: 0 };
@@ -33,7 +28,7 @@ export const ComingSoon = () => {
       minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
       seconds: Math.floor((distance % (1000 * 60)) / 1000),
     };
-  }, [getISTNow]);
+  }, []);
   const [timeLeft, setTimeLeft] = useState<TimeLeft>(calculateTimeLeft);
 
   useEffect(() => {
