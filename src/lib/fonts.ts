@@ -1,17 +1,17 @@
-import { Exo_2, Montserrat_Alternates } from "next/font/google";
+import { Noto_Sans, Noto_Serif } from "next/font/google";
 
-const exo2Font = Exo_2({
+const NotoSansFont = Noto_Sans({
   subsets: ["latin"],
   weight: ["300", "500", "600", "700", "800"],
-  variable: "--font-exo2",
+  variable: "--font-noto-sans",
   display: "auto",
 });
 
-const montserratAlternatesFont = Montserrat_Alternates({
+const NotoSerifFont = Noto_Serif({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-montserrat-alternates",
+  variable: "--font-noto-serif",
   display: "auto",
 });
 
-export { exo2Font, montserratAlternatesFont };
+export { NotoSansFont, NotoSerifFont };
